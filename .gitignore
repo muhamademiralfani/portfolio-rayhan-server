@@ -1,0 +1,44 @@
+# Node.js / Express.js server .gitignore
+
+# Folder dependensi
+# Ini adalah hal paling penting untuk diabaikan. Folder ini bisa sangat besar
+# dan bisa dibuat ulang kapan saja dengan menjalankan `npm install`.
+node_modules/
+
+# File Environment Variables
+# SANGAT PENTING! File ini berisi rahasia seperti koneksi database, API keys, dll.
+# Jangan pernah memasukkan file .env ke dalam Git.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# File log
+# Log dibuat saat aplikasi berjalan dan tidak seharusnya ada di repositori.
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Folder output build (jika Anda menggunakan TypeScript atau bundler)
+dist/
+build/
+.out/
+
+# Laporan tes (coverage)
+coverage/
+.nyc_output/
+
+# File yang dibuat oleh sistem operasi
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# File yang dibuat oleh IDE / Code Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
