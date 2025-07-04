@@ -22,8 +22,11 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Routes
+// Routes
 const projectRoutes = require('./routes/projects');
+const categoryRoutes = require('./routes/categories'); // <-- 1. Impor rute kategori
 app.use('/api/projects', projectRoutes);
+app.use('/api/categories', categoryRoutes); // <-- 2. Gunakan rute kategori
 
 // Jalankan server
 app.listen(port, () => {
