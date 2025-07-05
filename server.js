@@ -5,7 +5,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -29,6 +28,4 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/categories', categoryRoutes); // <-- 2. Gunakan rute kategori
 
 // Jalankan server
-app.listen(port, () => {
-    console.log(`Server berjalan di port: ${port}`);
-});
+module.exports = app;
