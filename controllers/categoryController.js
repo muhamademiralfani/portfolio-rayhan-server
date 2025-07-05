@@ -42,3 +42,26 @@ exports.addCategory = async (req, res) => {
         res.status(500).json({ message: 'Terjadi kesalahan di server saat menambahkan kategori.', error: error.message });
     }
 };
+
+// DELETE a category by ID
+exports.deleteCategory = async (req, res) => {
+    try {
+        // 1. Ambil ID dari parameter URL
+        const { id } = req.params;
+
+        // 2. Cari dan hapus kategori berdasarkan ID
+        const deletedCategory = await Category.findByIdAndDelete(id);
+
+        // 3. Jika tidak ada kategori dengan ID tersebut, kirim respons 404
+        if (!deletedCategory) {
+            return res.status(404).json({ message: 'Kategori tidak ditemukan.' });
+        }
+
+        // 4. Kirim respons sukses jika berhasil
+        res.status(200).json({ message: 'Kategori berhasil dihapus.' });
+
+    } catch (error) {
+        // 5. Tangani kesalahan server
+        res.status(500).json({ message: 'Gagal menghapus kategori.', error: error.message });
+    }
+};
