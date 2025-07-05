@@ -6,12 +6,16 @@ const categorySchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true, // Nama setiap kategori harus unik
-        trim: true
+        unique: true
     },
+    // TAMBAHAN BARU: Field untuk deskripsi kategori
     description: {
         type: String,
-        required: false // Deskripsi bersifat opsional
+        required: true // Deskripsi juga kita buat wajib
+    },
+    imageUrl: {
+        type: String,
+        required: true
     }
 }, { timestamps: true });
 
